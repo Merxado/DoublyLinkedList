@@ -14,6 +14,7 @@
                 Console.WriteLine("2. Mostrar hacia adelante");
                 Console.WriteLine("3. Mostrar hacia atrás");
                 Console.WriteLine("4. Ordenar en orden descendente");
+                Console.WriteLine("5. Mostrar la(s) moda(s)");
                 Console.WriteLine("0. Salir");
                 Console.Write("Opción: ");
                 opcion = int.Parse(Console.ReadLine());
@@ -34,6 +35,9 @@
                     case 4:
                         list.SortDescending();
                         Console.WriteLine("Lista ordenada en orden descendente.");
+                        break;
+                    case 5:
+                        list.ShowMode();
                         break;
                     case 0:
                         Console.WriteLine("Saliendo...");

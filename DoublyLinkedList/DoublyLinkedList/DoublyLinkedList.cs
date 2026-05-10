@@ -72,24 +72,56 @@ public class DoublyLinkedList<T> where T : IComparable<T>
 
     public void SortDescending()
     {
+        if (head == null || head == tail) return;
+
         DoubleNode<T> current = head;
         DoubleNode<T> temp = null;
 
         while (current != null)
         {
             temp = current.Next;
-            current.Prev = current.Next;
-            current.Next = temp;
-            current = current.Prev; // Mover al siguiente nodo (que ahora es el anterior)
+            current.Next = current.Prev;
+            current.Prev = temp;
+            current = temp;
         }
 
-        // Intercambiar head y tail
-        if (temp != null)
+        //intercambiar head y tail
+        temp = head;
+        head = tail;
+        tail = temp;
+    }
+
+    public void ShowMode()
+    {
+        if (head == null)
         {
-            temp = head;
-            head = tail;
-            tail = temp;
+            Console.WriteLine("La lista está vacía.");
+            return;
         }
+
+        Dictionary<T, int> conteo = new Dictionary<T, int>();
+        DoubleNode<T> current = head;
+
+        while (current != null)
+        {
+            if (conteo.ContainsKey(current.Data))
+                conteo[current.Data]++;
+            else
+                conteo[current.Data] = 1;
+
+            current = current.Next;
+        }
+
+        int max = 0;
+        foreach (var par in conteo)
+            if (par.Value > max)
+                max = par.Value;
+        Console.Write("Moda(s): ");
+        foreach (var par in conteo)
+            if(par.Value == max)
+                Console.Write(par.Key + " ");
+
+        Console.WriteLine($"\n(Aparece {max} veces)");
     }
 }
         
