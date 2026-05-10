@@ -119,9 +119,38 @@ public class DoublyLinkedList<T> where T : IComparable<T>
         Console.Write("Moda(s): ");
         foreach (var par in conteo)
             if(par.Value == max)
-                Console.Write(par.Key + " ");
+                Console.Write(par.Key + ", ");
 
-        Console.WriteLine($"\n(Aparece {max} veces)");
+        Console.WriteLine($"\n(Se repite(n) {max} veces)");
+    }
+
+    public void ShowGraph()
+    {
+        if (head == null)
+        {
+            Console.WriteLine("La lista está vacía.");
+            return;
+        }
+
+        Dictionary<T, int> conteo = new Dictionary<T, int>();
+        DoubleNode<T> current = head;
+
+        while (current != null)
+        {
+            if (conteo.ContainsKey(current.Data))
+                conteo[current.Data]++;
+            else
+                conteo[current.Data] = 1;
+            current = current.Next;
+        }
+
+        foreach (var par in conteo)
+        {
+            Console.Write(par.Key + "\t");
+            for (int i = 0; i < par.Value; i++)
+                Console.Write("*");
+            Console.WriteLine();
+        }
     }
 }
         

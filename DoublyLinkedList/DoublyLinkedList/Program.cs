@@ -15,6 +15,7 @@
                 Console.WriteLine("3. Mostrar hacia atrás");
                 Console.WriteLine("4. Ordenar en orden descendente");
                 Console.WriteLine("5. Mostrar la(s) moda(s)");
+                Console.WriteLine("6. Mostrar gráfico de barras");
                 Console.WriteLine("0. Salir");
                 Console.Write("Opción: ");
                 opcion = int.Parse(Console.ReadLine());
@@ -38,6 +39,9 @@
                         break;
                     case 5:
                         list.ShowMode();
+                        break;
+                    case 6:
+                        list.ShowGraph();
                         break;
                     case 0:
                         Console.WriteLine("Saliendo...");
