@@ -188,6 +188,7 @@ public class DoublyLinkedList<T> where T : IComparable<T>
             }
             current = current.Next;
         }
+        Console.WriteLine($"`{data}` no encontrado en la lista.");
     }
 }
         

@@ -17,6 +17,7 @@
                 Console.WriteLine("5. Mostrar la(s) moda(s)");
                 Console.WriteLine("6. Mostrar gráfico de barras");
                 Console.WriteLine("7. Buscar un valor");
+                Console.WriteLine("8. Eliminar un valor");
                 Console.WriteLine("0. Salir");
                 Console.Write("Opción: ");
                 opcion = int.Parse(Console.ReadLine());
