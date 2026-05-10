@@ -52,6 +52,12 @@
                         else
                             Console.WriteLine($"El valor '{buscar}' NO existe en la lista.");
                         break;
+                    case 8:
+                        Console.WriteLine("Ingrese el valor: ");
+                        string eliminar = Console.ReadLine();
+                        list.RemoveOne(eliminar);
+                        Console.WriteLine($"El valor '{eliminar}' ha sido eliminado (si existía).");
+                        break;
                     case 0:
                         Console.WriteLine("Saliendo...");
                         break;

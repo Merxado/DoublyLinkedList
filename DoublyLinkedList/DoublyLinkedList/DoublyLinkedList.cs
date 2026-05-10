@@ -118,7 +118,7 @@ public class DoublyLinkedList<T> where T : IComparable<T>
                 max = par.Value;
         Console.Write("Moda(s): ");
         foreach (var par in conteo)
-            if(par.Value == max)
+            if (par.Value == max)
                 Console.Write(par.Key + ", ");
 
         Console.WriteLine($"\n(Se repite(n) {max} veces)");
@@ -164,6 +164,30 @@ public class DoublyLinkedList<T> where T : IComparable<T>
             current = current.Next;
         }
         return false;
+    }
+
+    public void RemoveOne(T data)
+    {
+        DoubleNode<T> current = head;
+        while (current != null)
+        {
+            if (current.Data.Equals(data))
+            {
+                if (current.Prev != null)
+                    current.Prev.Next = current.Next;
+                else
+                    head = current.Next; // era el primero
+
+                if (current.Next != null)
+                    current.Next.Prev = current.Prev;
+                else
+                    tail = current.Prev; // era el último
+
+                Console.WriteLine($"Una ocurrencia de '{data}' ha sido eliminada.");
+                return; // solo eliminar uno
+            }
+            current = current.Next;
+        }
     }
 }
         
