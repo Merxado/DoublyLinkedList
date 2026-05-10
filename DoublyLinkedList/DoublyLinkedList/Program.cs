@@ -16,6 +16,7 @@
                 Console.WriteLine("4. Ordenar en orden descendente");
                 Console.WriteLine("5. Mostrar la(s) moda(s)");
                 Console.WriteLine("6. Mostrar gráfico de barras");
+                Console.WriteLine("7. Buscar un valor");
                 Console.WriteLine("0. Salir");
                 Console.Write("Opción: ");
                 opcion = int.Parse(Console.ReadLine());
@@ -42,6 +43,14 @@
                         break;
                     case 6:
                         list.ShowGraph();
+                        break;
+                    case 7:
+                        Console.WriteLine("Ingrese el valor a buscar: ");
+                        string buscar = Console.ReadLine();
+                        if (list.Exists(buscar))
+                            Console.WriteLine($"El valor '{buscar}' SI existe en la lista.");
+                        else
+                            Console.WriteLine($"El valor '{buscar}' NO existe en la lista.");
                         break;
                     case 0:
                         Console.WriteLine("Saliendo...");

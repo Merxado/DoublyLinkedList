@@ -152,6 +152,19 @@ public class DoublyLinkedList<T> where T : IComparable<T>
             Console.WriteLine();
         }
     }
+
+    public bool Exists(T data)
+    {
+        DoubleNode<T> current = head;
+
+        while (current != null)
+        {
+            if (current.Data.Equals(data))
+                return true;
+            current = current.Next;
+        }
+        return false;
+    }
 }
         
 
