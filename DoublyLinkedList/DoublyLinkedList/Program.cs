@@ -18,6 +18,7 @@
                 Console.WriteLine("6. Mostrar gráfico de barras");
                 Console.WriteLine("7. Buscar un valor");
                 Console.WriteLine("8. Eliminar un valor");
+                Console.WriteLine("9. Eliminar todos los nodos con un valor");
                 Console.WriteLine("0. Salir");
                 Console.Write("Opción: ");
                 opcion = int.Parse(Console.ReadLine());
@@ -58,6 +59,12 @@
                         string eliminar = Console.ReadLine();
                         list.RemoveOne(eliminar);
                         Console.WriteLine($"El valor '{eliminar}' ha sido eliminado (si existía).");
+                        break;
+                    case 9:
+                        Console.WriteLine("Ingrese el valor: ");
+                        string eliminarTodos = Console.ReadLine();
+                        list.RemoveAll(eliminarTodos);
+                        Console.WriteLine($"Todos los nodos con el valor '{eliminarTodos}' han sido eliminados.");
                         break;
                     case 0:
                         Console.WriteLine("Saliendo...");

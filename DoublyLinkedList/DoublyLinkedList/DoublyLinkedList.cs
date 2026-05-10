@@ -190,6 +190,39 @@ public class DoublyLinkedList<T> where T : IComparable<T>
         }
         Console.WriteLine($"`{data}` no encontrado en la lista.");
     }
+
+    public void RemoveAll(T data)
+    {
+        DoubleNode<T> current = head;
+        bool encontrado = false;
+
+        while (current != null)
+        {
+            DoubleNode<T> next = current.Next;
+
+            if (current.Data.Equals(data))
+            {
+                encontrado = true;
+                if (current.Prev != null)
+                    current.Prev.Next = current.Next;
+                else
+                    head = current.Next;
+                if (current.Next != null)
+                    current.Next.Prev = current.Prev;
+                else
+                    tail = current.Prev;
+
+                encontrado = true;
+            }
+
+            current = current.Next;
+        }
+
+        if (encontrado)
+            Console.WriteLine($"Todas las ocurrencias de '{data}' han sido eliminadas.");
+        else
+            Console.WriteLine($"`{data}` no encontrado en la lista.");
+    }
 }
         
 
