@@ -43,7 +43,7 @@ public class DoublyLinkedList<T> where T : IComparable<T>
         if (current.Next != null)
             current.Next.Prev = newNode; // hay nodo después
         else
-            tail = newNode;              // era el último, actualizar tail
+            tail = newNode;  // era el último, actualizar tail
 
         current.Next = newNode;
 
@@ -58,5 +58,41 @@ public class DoublyLinkedList<T> where T : IComparable<T>
         }
         Console.WriteLine("null");
     }
+
+    public void PrintBackward()
+    {
+        DoubleNode<T> current = tail;
+        while (current != null)
+        {
+            Console.Write(current.Data + " <-> ");
+            current = current.Prev;
+        }
+        Console.WriteLine("null");
+    }
+
+    public void SortDescending()
+    {
+        DoubleNode<T> current = head;
+        DoubleNode<T> temp = null;
+
+        while (current != null)
+        {
+            temp = current.Next;
+            current.Prev = current.Next;
+            current.Next = temp;
+            current = current.Prev; // Mover al siguiente nodo (que ahora es el anterior)
+        }
+
+        // Intercambiar head y tail
+        if (temp != null)
+        {
+            temp = head;
+            head = tail;
+            tail = temp;
+        }
+    }
 }
+        
+
+       
 

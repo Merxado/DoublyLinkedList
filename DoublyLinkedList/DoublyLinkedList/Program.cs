@@ -13,6 +13,7 @@
                 Console.WriteLine("1. Adicionar");
                 Console.WriteLine("2. Mostrar hacia adelante");
                 Console.WriteLine("3. Mostrar hacia atrás");
+                Console.WriteLine("4. Ordenar en orden descendente");
                 Console.WriteLine("0. Salir");
                 Console.Write("Opción: ");
                 opcion = int.Parse(Console.ReadLine());
@@ -29,6 +30,10 @@
                         break;
                     case 3:
                         list.PrintBackward();
+                        break;
+                    case 4:
+                        list.SortDescending();
+                        Console.WriteLine("Lista ordenada en orden descendente.");
                         break;
                     case 0:
                         Console.WriteLine("Saliendo...");
